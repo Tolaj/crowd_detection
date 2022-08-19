@@ -5099,7 +5099,7 @@ const demo = (props) => {
              
                 <div className="controls sticky -bottom-10  flex items-center ml-10">
                     
-                    <label for="strength" className='font-bold text-2xl text-slate-500'>Heat Strength</label>
+                    <label htmlFor="strength" className='font-bold text-2xl text-slate-500'>Heat Strength</label>
 
                     <input type="range" id="strength" className='ml-8' name="strength" min="0" max="100"/>
                     <div className='mt-32 ml-60'>
@@ -5111,7 +5111,7 @@ const demo = (props) => {
                             {
                             counter == 10?
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white " viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+                                    <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clipRule="evenodd" />
                                 </svg>
                             :
                                <>
@@ -5123,9 +5123,9 @@ const demo = (props) => {
                         </div>
                         {/* <div className="puntero"></div> */}
                     </div>
-                    <div class="dropdown dropdown-right dropdown-end">
-                <label tabindex="0" class="btn m-1">Click</label>
-                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                    <div className="dropdown dropdown-right dropdown-end">
+                <label tabIndex="0" className="btn m-1">Click</label>
+                <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                     <li><a onClick={()=>{setCharts(0)}}>Bubble Chart</a></li>
                     <li><a onClick={()=>{setCharts(1)}}>HeatMap</a></li>
                 </ul>
