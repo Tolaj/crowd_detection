@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Home = (props) => {
+const demo = (props) => {
 
     const [playControl, setPlayControl] = React.useState(0);
     const [charts, setCharts] = React.useState(0);
@@ -5124,7 +5124,7 @@ const Home = (props) => {
                         {/* <div className="puntero"></div> */}
                     </div>
                     <div class="dropdown dropdown-right dropdown-end">
-                <label tabindex="0" class="btn m-1">Select Map Type</label>
+                <label tabindex="0" class="btn m-1">Click</label>
                 <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                     <li><a onClick={()=>{setCharts(0)}}>Bubble Chart</a></li>
                     <li><a onClick={()=>{setCharts(1)}}>HeatMap</a></li>
@@ -5141,4 +5141,4 @@ const Home = (props) => {
 
 
 
-export default Home;
+export default demo;
