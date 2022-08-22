@@ -5,6 +5,7 @@ const Home = (props) => {
     const [playControl, setPlayControl] = React.useState(0);
     const [charts, setCharts] = React.useState(0);
     const [counter, setCounter] = React.useState(0);
+    const [publicCount, setPublicCount] = React.useState(0);
 
     React.useEffect(() => {
         const interval = setInterval(() => {
@@ -5016,6 +5017,12 @@ const Home = (props) => {
                 heat.draw(event.target.value / 100);
             }, false);
             heat.draw(0.85);
+            const dataArr = []
+           
+            Objects[Objects[counter]?counter:0].coordinatesArray.map((item)=>{
+             dataArr.push({x:item[0],y:item[1],z:2})
+            })
+            setPublicCount(dataArr.length)
         }else{
 
            const dataArr = []
@@ -5023,6 +5030,7 @@ const Home = (props) => {
            Objects[Objects[counter]?counter:0].coordinatesArray.map((item)=>{
             dataArr.push({x:item[0],y:item[1],z:2})
            })
+           setPublicCount(dataArr.length)
            global.document.getElementById("heat-map").style.opacity = 0
            global.document.getElementById("chartContainer").style.opacity = 1
 
@@ -5033,7 +5041,7 @@ const Home = (props) => {
                     text: " _ "
                 },
                 axisX: {
-                    title: `Total People Count:${dataArr.length}`,
+                    // title: `Total People Count:${dataArr.length}`,
                     gridThickness: 0,
                     tickLength: 0,
                     lineThickness: 0,
@@ -5056,7 +5064,7 @@ const Home = (props) => {
                     maximum: 1200
                 },
                 legend: {
-                    cursor: "pointer"
+                    cursor: "scatter"
                     
                 },
                 data: [{
@@ -5130,7 +5138,7 @@ const Home = (props) => {
                     <li><a onClick={()=>{setCharts(1)}}>HeatMap</a></li>
                 </ul>
             </div>
-                            
+            <div className='font-bold text-2xl text-slate-500 ml-6'>Total Public Count: {publicCount}</div>     
                 </div>
              
             </div>

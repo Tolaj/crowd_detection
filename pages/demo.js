@@ -5,6 +5,7 @@ const demo = (props) => {
     const [playControl, setPlayControl] = React.useState(0);
     const [charts, setCharts] = React.useState(0);
     const [counter, setCounter] = React.useState(0);
+    const [publicCount, setPublicCount] = React.useState(0);
 
     React.useEffect(() => {
         const interval = setInterval(() => {
@@ -5023,6 +5024,7 @@ const demo = (props) => {
            Objects[Objects[counter]?counter:0].coordinatesArray.map((item)=>{
             dataArr.push({x:item[0],y:item[1],z:2})
            })
+           setPublicCount(dataArr.length)
            global.document.getElementById("heat-map").style.opacity = 0
            global.document.getElementById("chartContainer").style.opacity = 1
 
@@ -5130,9 +5132,9 @@ const demo = (props) => {
                     <li><a onClick={()=>{setCharts(1)}}>HeatMap</a></li>
                 </ul>
             </div>
-                            
+                           
                 </div>
-             
+          
             </div>
            
         </div>
