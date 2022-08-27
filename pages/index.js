@@ -6,6 +6,21 @@ const Home = (props) => {
     const [charts, setCharts] = React.useState(0);
     const [counter, setCounter] = React.useState(0);
     const [publicCount, setPublicCount] = React.useState(0);
+    const [imgBG, setImgBG] = React.useState("bg-[url('../public/images/0.png')]");
+
+    const imgList = [
+        "bg-[url('../public/images/0.png')]",
+        "bg-[url('../public/images/1.png')]",
+        "bg-[url('../public/images/2.png')]",
+        "bg-[url('../public/images/3.png')]",
+        "bg-[url('../public/images/4.png')]",
+        "bg-[url('../public/images/5.png')]",
+        "bg-[url('../public/images/6.png')]",
+        "bg-[url('../public/images/7.png')]",
+        "bg-[url('../public/images/8.png')]",
+        "bg-[url('../public/images/9.png')]",
+        "bg-[url('../public/images/10.png')]"
+    ]
 
     React.useEffect(() => {
         const interval = setInterval(() => {
@@ -5006,11 +5021,12 @@ const Home = (props) => {
             }
           ]
         
-        if(charts == 1){
-            
+        if(charts == 0){
+            setImgBG(imgList[counter])
             const canvas = global.document.getElementById("heat-map"); 
             global.document.getElementById("heat-map").style.opacity = 1
             global.document.getElementById("chartContainer").style.opacity = 0
+            console.log(counter)
             const heat = new HeatMap(canvas, Objects[Objects[counter]?counter:0].coordinatesArray);
             const strengthButton = document.getElementById("strength");
             strengthButton.addEventListener("input", (event) => {
@@ -5102,10 +5118,10 @@ const Home = (props) => {
     return (
         <div className='w-full h-full bg-cover  m-0 overflow-y-clip'>
             <div className='w-full h-[700px]'>
-                <div id="chartContainer" ></div>
-                <canvas id="heat-map" className='w-full h-full '></canvas>
+                <div id="chartContainer"></div>
+                <canvas id="heat-map" className={`w-full h-full bg-center  bg-no-repeat bg-cover ${imgBG}`} ></canvas>
              
-                <div className="controls sticky -bottom-10  flex items-center ml-10">
+                <div className="controls sticky -bottom-10  flex items-center ml-10 ">
                     
                     <label htmlFor="strength" className='font-bold text-2xl text-slate-500'>Heat Strength</label>
 
@@ -5134,8 +5150,8 @@ const Home = (props) => {
                     <div className="dropdown dropdown-right dropdown-end">
                 <label tabIndex="0" className="btn m-1">Select Map Type</label>
                 <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a onClick={()=>{setCharts(0)}}>Bubble Chart</a></li>
-                    <li><a onClick={()=>{setCharts(1)}}>HeatMap</a></li>
+                    <li><a onClick={()=>{setCharts(0)}}>HeatMap</a></li>
+                    <li><a onClick={()=>{setCharts(1)}}>Bubble Chart</a></li>
                 </ul>
             </div>
             <div className='font-bold text-2xl text-slate-500 ml-6'>Total Public Count: {publicCount}</div>     
